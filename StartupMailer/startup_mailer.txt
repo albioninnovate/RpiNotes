@@ -18,11 +18,26 @@ Create directory “ code “ in the home/pi  directory  and sysstat_file
 
 Place startup_mailer.py in /home/pi/code/startup_mailer.py
 
+		cp /home/pi/RpiNotes/StartupMailer/startup_mailer.py /home/pi/code/startup_mailer.py
+
 Make a copy of the existing rc.local file 
 
 		sudo cp /etc/rc.local  /etc/rc.local.original
 
-Edit /etc/rc.local
+
+Move modified rc local file to /etc/rc.local
+
+	sudo cp /home/pi/RpiNotes/StartupMailer/rc.local /etc/rc.local
+
+Reboot to test 
+
+
+FIXME;  install update mailer, cron job
+
+
+
+
+OR Edit /etc/rc.local
 
 		sudo nano /etc/rc.local
 

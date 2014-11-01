@@ -1,0 +1,24 @@
+# rc.local
+#
+
+#This script modified inserting sleep to allow time to aquire an IP address and
+# call of the startup_mailer.py to send the ip address on boot 
+
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+# Print the IP address if it doesn't work add sleep 30 before all your code 
+
+sleep 30
+
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+  python /home/pi/code/startup_mailer.py
+fi
+exit 0
