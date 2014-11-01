@@ -1,0 +1,53 @@
+12C set up
+12c under Python3
+
+http://www.raspberrypi.org/forums/viewtopic.php?f=32&t=22348&p=590636&hilit=python3#p590636
+
+by DaveBolt » Fri Aug 01, 2014 8:02 pm 
+
+You might also need to install python3-dev. Here is my revised set of instructions.
+
+
+sudo apt-get update
+
+
+sudo apt-get install python3-dev
+
+
+wget http://ftp.de.debian.org/debian/pool/main/i/i2c-tools/i2c-tools_3.1.1.orig.tar.bz2
+
+
+tar -xf i2c-tools_3.1.1.orig.tar.bz2
+
+
+cd i2c-tools-3.1.1/py-smbus
+
+
+cp smbusmodule.c smbusmodule.c.orig   m# make backup
+
+
+
+Get the code from http://www.spinics.net/lists/linux-i2c/msg08427.html and replace the content of smbusmodule.c with that code.
+Replace
+
+
+#include <linux/i2c-dev.h>
+
+
+with
+
+
+#include "i2c-dev.h"
+
+
+Download a 2.x version of lm-sensors from http://lm-sensors.org/wiki/Download and unpack it. (I had some issues trying to use tar or Xarchiver on my Pi, but managed just fine using 7-Zip on a PC).
+Copy kernel/i2c-dev.h to the directory containing your modified smbusmodule.c
+Run the following commands.
+
+
+    python3 setup.py build
+    sudo python3 setup.py install
+
+
+Now if you start Idle 3 you should be able to include smbus in your code without problems.
+Thanks to everyone who contributed above and got me this far.

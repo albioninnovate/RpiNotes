@@ -1,0 +1,18 @@
+Picamera
+
+http://picamera.readthedocs.org/en/latest/install3.html#raspbian-installation
+
+sudo apt-get update
+
+$ sudo apt-get install python3-picamera
+
+To upgrade your installation when new releases are made you can simply use apt’s normal upgrade procedure:
+
+$ sudo apt-get update
+$ sudo apt-get upgrade
+
+
+If you ever need to remove your installation:
+$ sudo apt-get remove python3-picamera
+
+($ sudo apt-get install python-picamera  for python 2.x)

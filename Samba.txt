@@ -1,0 +1,38 @@
+Samba Share with windows 
+
+Ref: http://raspberrypihq.com/how-to-share-a-folder-with-a-windows-computer-from-a-raspberry-pi/
+
+Install:
+sudo apt-get install samba samba-common-bin
+
+
+Edit:
+
+sudo nano /etc/samba/smb.conf
+
+Uncomment and change:
+
+workgroup = WORKGROUP
+wins support = yes
+
+
+You can use anything as your workgroup name as long as it is alphanumerical and matches the workgroup you would like to join. The default workgroup in Windows 7 is WORKGROUP.
+
+At the end of the smb.conf insert: 
+
+[home]
+ 	comment=Raspberry Pi home directory 
+ 	path=/home/pi/
+ 	browsable=Yes
+ 	writeable=Yes
+ 	only guest=no
+ 	create mask=0777
+ 	directory mask=0777
+	 public=no
+
+Close smb.conf
+
+
+Add pi as Samba user: 
+
+	sudo smbpasswd -a pi
