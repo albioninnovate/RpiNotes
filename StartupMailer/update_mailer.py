@@ -22,9 +22,9 @@ import pickle
 
 # Change to your own account information
 
-to = 'wardhills@gmail.com'
-gmail_user = 'albionhouse2A@gmail.com'
-gmail_password = 'Richlandwa9'
+to = 'user to send to @gmail.com'
+gmail_user = 'your_email@gmail.com'
+gmail_password = 'your password'
 smtpserver = smtplib.SMTP('smtp.gmail.com', 587)
 smtpserver.ehlo()
 smtpserver.starttls()

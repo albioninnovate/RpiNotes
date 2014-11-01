@@ -34,8 +34,8 @@ import pickle
 # Change to your own account information
 
 to = 'wardhills@gmail.com'
-gmail_user = 'albionhouse2A@gmail.com'
-gmail_password = 'Richlandwa9'
+gmail_user = 'your_email@gmail.com'
+gmail_password = 'Your_password'
 smtpserver = smtplib.SMTP('smtp.gmail.com', 587)
 smtpserver.ehlo()
 smtpserver.starttls()
